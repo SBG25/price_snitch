@@ -114,3 +114,4 @@ dmypy.json
 .pyre/
 
 price_snitch/resources/*
+.idea

@@ -14,3 +14,4 @@ for _, row in items.iterrows():
 
 price_warner.process_warning_list()
 print(str(len(price_warner.warning_list)) + " items under its threshold.")
+print(str(len(price_warner.error_list)) + " items with errors.")

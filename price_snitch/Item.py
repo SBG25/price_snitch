@@ -4,6 +4,9 @@ class Item:
         self.name = name
         self.url = url
         self.threshold = threshold
+        self.base_price = ""
+        self.current_price = ""
+        self.discount = ""
 
     def set_base_price(self, base_price):
         self.base_price = base_price
