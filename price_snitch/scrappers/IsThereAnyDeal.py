@@ -10,3 +10,4 @@ class IsThereAnyDeal(I.ScrapperInterface):
 
         item.set_base_price(None)
         item.set_current_price(price)
+        item.set_discount(None)

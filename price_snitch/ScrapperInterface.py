@@ -11,12 +11,12 @@ class ScrapperInterface:
         self.delay = delay
 
     def url_to_item(self, item):
-        soup = self.get_html(item)
+        soup = self.get_html(item.url)
         self.update_price(soup, item)
 
-    def get_html(self, item):
+    def get_html(self, url):
         headers = {'User-Agent': self.get_random_ua()}
-        content = requests.get(item.url, headers=headers).content
+        content = requests.get(url, headers=headers).content
         return BeautifulSoup(content, "lxml")
 
     def update_price(self, soup, item):

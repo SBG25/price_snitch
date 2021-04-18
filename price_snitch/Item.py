@@ -17,7 +17,10 @@ class Item:
 
     def set_discount(self, discount=None):
         if discount is None:
-            self.discount = round(1 - (self.current_price / self.base_price), 2)
+            if self.current_price is not None and self.base_price is not None and self.base_price != 0:
+                self.discount = round(1 - (self.current_price / self.base_price), 2)
+            else:
+                self.discount = None
         else:
             self.discount = discount
 
