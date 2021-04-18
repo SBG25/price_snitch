@@ -1,7 +1,7 @@
 import ScrapperInterface as I
 
 class Pccomponentes(I.ScrapperInterface):
-    url = "www.pccomponentes.com"
+    name = "Pccomponentes"
 
     def update_price(self, soup, item):
         price = soup.find('div', attrs={'class':'precioMain'})

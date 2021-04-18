@@ -9,7 +9,7 @@ price_warner = PriceWarner(config_file)
 items = pd.read_csv(items_file)
 
 for _, row in items.iterrows():
-    item = Item(row['name'], row['url'], row['threshold'])
+    item = Item(row['name'], row['url'], row['threshold'], row['scrapper'])
     price_warner.process_row(item)
 
 price_warner.process_warning_list()

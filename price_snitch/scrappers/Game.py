@@ -1,7 +1,7 @@
 import ScrapperInterface as I
 
 class Game(I.ScrapperInterface):
-    url = "www.game.es"
+    name = "Game"
 
     def update_price(self, soup, item):
         price = soup.find('div', attrs={'class':'buy-xl buy-new'})

@@ -25,12 +25,12 @@ class PriceWarner():
             module = importlib.import_module("scrappers." + scrapper)
             class_ = getattr(module, scrapper)
             instance = class_()
-            scrappers_list[instance.url] = instance
+            scrappers_list[instance.name] = instance
         return scrappers_list
 
     def process_row(self, item):
         try:
-            scrapper = self.get_scrapper(item.url)
+            scrapper = self.scrappers[item.scrapper]
             scrapper.url_to_item(item)
 
             if item.is_below_threshold():
@@ -49,11 +49,5 @@ class PriceWarner():
             for item in self.error_list:
                 email_body += str(item) + "\n\n"
 
-        self.mail_sender.send_mail(email_body)
-
-    def get_scrapper(self, url):
-        try:
-            main_url = url.split("/")[2]
-            return self.scrappers[main_url]
-        except KeyError:
-            raise KeyError
+        if email_body:
+            self.mail_sender.send_mail(email_body)

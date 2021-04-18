@@ -1,7 +1,7 @@
 import ScrapperInterface as I
 
 class Amazon(I.ScrapperInterface):
-    url = "www.amazon.es"
+    name = "Amazon"
 
     def update_price(self, soup, item):
         price = soup.find('div', attrs={'id':'price'})
