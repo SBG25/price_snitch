@@ -1,10 +1,11 @@
 import ScrapperInterface as I
 
+
 class Pccomponentes(I.ScrapperInterface):
     name = "Pccomponentes"
 
     def update_price(self, soup, item):
-        price = soup.find('div', attrs={'class':'precioMain'})
+        price = soup.find('div', attrs={'class': 'precioMain'})
 
         item.set_base_price(float(price['data-baseprice']))
         item.set_current_price(float(price['data-price']))

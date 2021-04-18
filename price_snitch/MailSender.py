@@ -2,7 +2,8 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-class MailSender():
+
+class MailSender:
     subject = "Aviso de precios"
 
     def __init__(self, sender, password, receiver):
